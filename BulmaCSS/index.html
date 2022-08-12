@@ -1,0 +1,390 @@
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPA S15</title>
+
+    <!-- Importación para trabajo con Bulma CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- Importación para trabajo con PyScript -->
+    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css"/>
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+    
+    <py-script defer src="python/script.py"></py-script>
+    
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar is-white has-shadow">
+        <!-- logo / brand -->
+        <div class="navbar-brand">
+            <a class="navbar-item">
+                <img src="favicon.ico" style="max-height: 70px" class="py-2 px-2">
+            </a>
+            <a class="navbar-burger" id="navbarBurger">
+                <span></span>
+                <span></span>
+            </a>
+        </div>
+
+        <div class="navbar-menu" id="navbarMenu">
+            <!-- right links -->
+            <div class="navbar-end">
+                <a class="navbar-item">Mi perfíl</a>
+                <a class="navbar-item" id="my-cart">Mis compras (0)</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- BREADCRUMBS -->
+    <div class="section pt-2 pb-0">
+        <nav class="breadcrumb has-arrow-separator">
+            <ul class="container">
+                <li><a class="has-text-grey" href="#">App SPA</a></li>
+                <li><a href="#">Tienda</a></li </ul>
+        </nav>
+    </div>
+
+    <!-- INCIO -->
+    <section class="section">
+        <div class="container">
+
+            <div class="columns is-vcentered is-multiline has-text-justified">
+                <!-- Aplicación clases responsive -->
+                <div class="column is-3-desktop">
+                    <h1 class="title is-size-3-mobile is-size-1-desktop">Café</h1>
+                    <h2 class="subtitle is-size-3-mobile is-size-2-desktop">Patojito</h2>
+                    <p>
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum aliquid distinctio
+                        necessitatibus at itaque culpa. Corrupti amet, quam, at fugit tempore culpa molestias provident,
+                        dolorum vero voluptatibus earum ratione..
+                    </p>
+                </div>
+
+                <div class="column is-6-tablet is-5-desktop has-text-centered">
+                    <img src="assets/parrot-00.png" alt="birb" class="px-2">
+                </div>
+
+                <div class="column is-12-tablet is-4-desktop">
+                    <div class="is-size-4 mb-4">$3.200 COP</div>
+                    <p class="my-4">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum aliquid distinctio sed
+                        necessitatibus at itaque culpa.
+                    </p>
+
+                    <!-- [ Video #14 | Forms ] -->
+                    <form>
+                        <div class="field">
+                            <div class="control my-4">
+                                <div class="select is-dark">
+                                    <select>
+                                        <option>Small (250g)</option>
+                                        <option>Large (500g)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- [ Video #11 | Botones para compra ] -->
+                    <button class="button is-primary" id="buy">Añadir al carrito</button>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CONTÁCTENOS -->
+    <section class="section">
+        <div class="container">
+
+            <!-- Se puede hacer en las columnas aplicabilidad de separaciones, por ejemplo: -->
+            <div class="columns is-8 is-variable">
+
+                <div class="column is-7-tablet">
+
+                    <!-- TABS -->
+                    <div class="tabs is-boxed">
+                        <ul>
+                            <li class="is-active" data-target="code-panel">
+                                <a href="#">Editor de código</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="px-2" id="tabContent">
+
+                        <div class="is-active" id="code-panel">
+                            <h5 class="is-size-5 title" id="">Escribe y ejecuta python</h5>
+
+                            <label for="code-editor" class="has-text-justified">
+                                <!-- Escribe tu código aqui! -->
+                                <py-repl id="my-repl" auto-generate="true" exec-id="1" root="my-repl">
+                                </py-repl>
+                            </label>
+
+                        </div>
+
+                        <div class="is-hidden" id="deliveryInfo">
+                            <h5 class="is-size-5 title">Detalles del envío</h5>
+                            <p>
+                                Ipsum lorem, dolor sit amet consectetur adipisicing elit. Earum aliquid distinctio sed
+                                necessitatibus at itaque culpa. Corrupti amet, quam, at fugit tempore culpa molestias
+                                provident, dolorum vero voluptatibus earum ratione.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="column is-5-tablet">
+
+                    <!-- MESSAGE BOX -->
+                    <div class="message">
+                        <div class="message-header">
+                            <p>CONTACTE CON NOSOTROS</p>
+                        </div>
+                        <div class="message-body">
+                            <p class="my-4">
+                                Para nosotros usted es muy importante.<br>
+                            </p>
+
+                            <div class="dropdown is-hoverable">
+                                <div class="dropdown-trigger">
+                                    <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
+                                        <span>De interés</span>
+                                        <span class="icon is-small">
+                                            <i class="fas fa-angle-down" aria-hidden="true"></i>
+                                        </span>
+                                    </button>
+                                </div>
+
+                                <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+                                    <div class="dropdown-content">
+                                        <div class="dropdown-item">
+                                            <p>
+                                                El <a href="https://festivaldemanizales.com">Festival Internacional del
+                                                    Teatro de Manizales</a> es una fiesta cultural
+                                                que se realiza anualmente desde 1968 en la ciudad de las puertas
+                                                abiertas, ubicada en la región del Eje Cafetero de Colombia.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="dropdown is-hoverable">
+                                <div class="dropdown-trigger">
+                                    <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
+                                        <span>Más información</span>
+                                        <span class="icon is-small">
+                                            <i class="fas fa-angle-down" aria-hidden="true"></i>
+                                        </span>
+                                    </button>
+                                </div>
+
+                                <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+                                    <div class="dropdown-content">
+                                        <div class="dropdown-item">
+                                            <p>
+                                                El <a
+                                                    href="http://patrimonio.mincultura.gov.co/legislacion/Paginas/Carnaval-de-Riosucio.aspx">Carnaval
+                                                    de Riosucio Caldas</a> es una amalgama de saberes en torno a las
+                                                artes manuales, la danza y lo que se conoce como "literatura
+                                                matachinesca".
+                                                Se celebrado cada dos años a inicios de enero y es un acto simbólico que
+                                                unió dos pueblos enfrentados históricamente en la región: San Sebastián
+                                                de Quiebralomo y el pueblo de La Montaña.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <button class="button is-primary my-4" id="join">Ingresar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- CARDS -->
+    <section class="section">
+        <div class="container">
+            <h4 class="title is-size-4 has-text-centred">Productos relacionados</h4>
+            <div class="columns mt-5 is-8 is-variable is-centered">
+                <!-- Centrado de todas las cards -->
+
+                <div class="column is-4-tablet is-3-desktop">
+                    <div class="card">
+                        <figure class="image is-1by1">
+                            <img class="" src="assets/parrot-01-nobg.png" alt="birbi-product">
+                        </figure>
+
+                        <div class="card-content">
+                            <p>$5.500 COP</p>
+                            <p class="title is-size-5">Tinto pajarito</p>
+                        </div>
+
+                        <footer class="card-footer">
+                            <p class="card-footer-item">
+                                <a href="" class="has-text-grey">Ver</a>
+                            </p>
+                        </footer>
+                    </div>
+                </div>
+
+                <div class="column is-4-tablet is-3-desktop">
+                    <div class="card">
+                        <figure class="image is-1by1">
+                            <img class="" src="assets/parrot-02-nobg.png" alt="birbi-product">
+                        </figure>
+
+                        <div class="card-content">
+                            <p>$2.000 COP</p>
+                            <p class="title is-size-5">Pocillo patojillo</p>
+                        </div>
+
+                        <footer class="card-footer">
+                            <p class="card-footer-item">
+                                <a href="" class="has-text-grey">Ver</a>
+                            </p>
+                        </footer>
+                    </div>
+                </div>
+
+                <div class="column is-4-tablet is-3-desktop">
+                    <div class="card">
+                        <figure class="image is-1by1">
+                            <img class="" src="assets/parrot-03-nobg.png" alt="birbi-product">
+                        </figure>
+
+                        <div class="card-content">
+                            <p>$1.500 COP</p>
+                            <p class="title is-size-5">Cestilla lorilla</p>
+                        </div>
+
+                        <footer class="card-footer">
+                            <p class="card-footer-item">
+                                <a href="" class="has-text-grey">Ver</a>
+                            </p>
+                        </footer>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- MODAL -->
+    <div class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-content has-background-white p-5">
+
+            <h2 class="title mb-4">Contáctenos</h3>
+                <!-- [ Video #14 | Forms ] -->
+                <form action="">
+                    <div class="container pb-3">
+
+                        <div class="columns is-vcentered is-multiline">
+                            <div class="column is-4 is-center is-centered">
+                                <figure class="image is-256x256 is-centered">
+                                    <img class="is-rounded" id="user-image" src="https://bulma.io/images/placeholders/256x256.png">
+                                </figure>
+                            </div>
+
+                            <div class="column is-8">
+                                <div class="field">
+                                    <label class="label has-text-black p-0 mt-0 mb-1 has-text-justified">Nombres</label>
+                                    <div class="control">
+                                        <input type="text" class="input" id="f-name" placeholder="Mi nombre" required>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <label
+                                        class="label has-text-black p-0 mt-0 mb-1 has-text-justified">Apellidos</label>
+                                    <div class="control">
+                                        <input type="text" class="input" id="l-name" placeholder="Mi apellido" required>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <label class="label has-text-black p-0 mt-0 mb-1 has-text-justified">Edad</label>
+                                    <div class="control">
+                                        <input type="number" class="input" id="age" placeholder="0 ~ 100" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="field">
+                        <label class="label has-text-black p-0 mt-0 mb-1 has-text-justified">Email</label>
+                        <div class="control">
+                            <input type="text" class="input" id="email" placeholder="Mi email" required>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label has-text-black p-0 mt-0 mb-1 has-text-justified">Teléfono</label>
+                        <div class="control">
+                            <input type="text" class="input" id="cell" placeholder="Mi teléfono móvil" required>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label has-text-black p-0 mt-0 mb-1 has-text-justified">País</label>
+                        <div class="control">
+                            <input type="text" class="input" id="country" placeholder="Mi país" required>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label has-text-black p-0 mt-0 mb-1 has-text-justified">Ciudad</label>
+                        <div class="control">
+                            <input type="text" class="input" id="city" placeholder="Mi ciudad" required>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <div class="control">
+                            <label class="checkbox">
+                                <p>
+                                    <input type="checkbox" required>
+                                    Estoy de acuerdo con los <a href="#">términos y condiciones</a> de este formulario.
+                                </p>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="dropdown is-active">
+
+                    </div>
+
+                    <div class="my-4 has-text-centered">
+                        <button class="button is-primary">Ingresar</button>
+                    </div>
+                </form>
+
+        </div>
+    </div>    
+
+    <!-- FOOTER -->
+    <footer class="footer has-background-black">
+        <div class="conten has-text-centered has-text-white">
+            <p><b>Diseño de interfaces —— Castrillón Valencia Over Haider</b></p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
